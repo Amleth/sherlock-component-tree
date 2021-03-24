@@ -1,5 +1,5 @@
 export const sparqlEndpoint = async query => {
-    let res = await fetch(process.env.REACT_APP_SHEROCK_SPARQL_ENDPOINT, {
+    let res = await fetch(process.env.REACT_APP_SHERLOCK_SPARQL_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
