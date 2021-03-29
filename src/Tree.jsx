@@ -6,19 +6,25 @@ import {makeStyles} from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import TreeItem from "@material-ui/lab/TreeItem";
 
 import {style} from "./tree.css";
 import {sparqlEndpoint} from "./sparql";
+import CustomTreeItem from "./CustomTreeItem";
+import {propertiesToSkipAsSparqlFilter} from "./common";
 
 const Q = (uri) => `
-  SELECT ?s ?p ?o ?g
+  SELECT ?s ?p ?o ?g (count(distinct ?children) as ?count)
   WHERE {
     GRAPH ?g {
       <${uri}> ?p ?o .
+      OPTIONAL {?o ?p2 ?children
+            ${propertiesToSkipAsSparqlFilter("?p2")}
+        } .
+      ${propertiesToSkipAsSparqlFilter("?p")}
       BIND (<${uri}> as ?s) .
     }
   }
+  GROUP BY ?s ?p ?o ?g
 `;
 
 const Tree = ({uri}) => {
@@ -27,41 +33,33 @@ const Tree = ({uri}) => {
     const [loadedUri, setLoadedUri] = useState([]);
 
     useEffect(() => {
+        console.log(Q(uri));
         sparqlEndpoint(Q(uri)).then((res) => {
             setTreeData(res.results.bindings);
         });
-        console.log(treeData);
     }, [uri]);
 
     useEffect(() => {
-        if (selectedItem && ! loadedUri.includes(selectedItem.o)) {
-            console.log("selecteditem", selectedItem);
+        if (selectedItem && !loadedUri.includes(selectedItem.o)) {
             sparqlEndpoint(Q(selectedItem.o)).then(res => {
                 treeData.push(...res.results.bindings);
                 setTreeData(treeData);
                 setLoadedUri([...loadedUri, selectedItem.o])
             })
         }
+
     }, [JSON.stringify(selectedItem)]);
 
 
     return (
         <div css={style}>
+            <h1>{uri}</h1>
             <div>Item sélectionné : {JSON.stringify(selectedItem)}</div>
-            <TreeView>
-                {treeData.map((child) => {
-                    const id = [child.s.value, child.p.value, child.o.value, child.g.value];
-                    return (
-                        <TreeItem
-                            key={id}
-                            nodeId={id.toString()}
-                            label={child.p.value + " — " + child.o.value}
-                            onClick={(e) => {
-                                setSelectedItem({s: child.s.value, p: child.p.value, o: child.o.value, g: child.g.value});
-                            }}
-                        />
-                    );
-                })}
+            <TreeView
+                defaultCollapseIcon={<ExpandMoreIcon/>}
+                defaultExpandIcon={<ChevronRightIcon/>}
+            >
+                <CustomTreeItem treeData={treeData} setSelectedItem={setSelectedItem} uri={uri} loadedUri={loadedUri}/>
             </TreeView>
         </div>
     );
