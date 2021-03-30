@@ -30,10 +30,19 @@ const Q = (uri) => `
 const Tree = ({uri}) => {
     const [treeData, setTreeData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    /* setSelectedItem cannot be used as UseEffect dependency, has to use setSelectedItemString as intermediate
+    https://stackoverflow.com/questions/55808749/use-object-in-useeffect-2nd-param-without-having-to-stringify-it-to-json
+    https://twitter.com/dan_abramov/status/1104414272753487872
+     */
+    const [selectedItemString, setSelectedItemString] = useState('');
     const [loadedUri, setLoadedUri] = useState([]);
 
+    const setSelectedItemCallback = (value) => {
+        setSelectedItem(value);
+        setSelectedItemString(JSON.stringify(value));
+    }
+
     useEffect(() => {
-        console.log(Q(uri));
         sparqlEndpoint(Q(uri)).then((res) => {
             setTreeData(res.results.bindings);
         });
@@ -48,7 +57,7 @@ const Tree = ({uri}) => {
             })
         }
 
-    }, [JSON.stringify(selectedItem)]);
+    }, [selectedItemString, selectedItem, loadedUri, treeData]);
 
 
     return (
@@ -59,7 +68,7 @@ const Tree = ({uri}) => {
                 defaultCollapseIcon={<ExpandMoreIcon/>}
                 defaultExpandIcon={<ChevronRightIcon/>}
             >
-                <CustomTreeItem treeData={treeData} setSelectedItem={setSelectedItem} uri={uri} loadedUri={loadedUri}/>
+                <CustomTreeItem treeData={treeData} setSelectedItem={setSelectedItemCallback} uri={uri} loadedUri={loadedUri}/>
             </TreeView>
         </div>
     );

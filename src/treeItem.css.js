@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import {makeStyles} from "@material-ui/core/styles";
 
 export const useTreeItemStyles = makeStyles((theme) => ({
