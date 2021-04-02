@@ -1,12 +1,11 @@
-/** @jsxImportSource @emotion/react */
-import {css} from "@emotion/react";
 import React, {useCallback, useEffect, useRef, useState} from "react";
 
-import {style} from "./tree.css";
 import {Label} from "@material-ui/icons";
 import StyledTreeItem from "./StyledTreeItem";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
+
     if (treeData && treeData.length) {
         const currentNodeChildren = treeData.filter(node => node.s.value === uri);
         return (
@@ -15,9 +14,13 @@ const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
                         const id = [child.s.value, child.p.value, child.o.value, child.g.value];
                         return (
                             <StyledTreeItem
-                                key={Math.random()}
+                                /*
+                                This will generate a warning, since MuiTransitions use findDOMNode which is deprecated in StrictMode
+                                https://github.com/mui-org/material-ui/issues/13394
+                                 */
+                                key={id.toString()}
                                 nodeId={id.toString()}
-                                labelText={child.p.value + " — " + child.o.value}
+                                labelText= {computeLabelText(child)}
                                 labelInfo={child.count.value}
                                 labelIcon={Label}
                                 onClick={child.count.value > 0 ?
@@ -40,7 +43,11 @@ const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
             </div>
         );
     }
-    return null;
+    return <CircularProgress />;
+
+    function computeLabelText(child) {
+        return child.type ? child.p.value + " — " + child.o.value + " --" + child.type.value : child.p.value + " — " + child.o.value + " --";
+    }
 }
 
 export default CustomTreeItem;
