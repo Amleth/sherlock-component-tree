@@ -4,12 +4,13 @@ import React, {useCallback, useEffect, useReducer, useRef, useState} from "react
 import TreeView from "@material-ui/lab/TreeView";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
-import {style} from "./tree.css";
-import {sparqlEndpoint} from "./sparql";
-import CustomTreeItem from "./CustomTreeItem";
-import {propertiesToSkipAsSparqlFilter} from "./common";
+import {style} from "../../tree.css";
+import {sparqlEndpoint} from "../../sparql";
+import CustomTreeItem from "../../CustomTreeItem";
+import {propertiesToSkipAsSparqlFilter} from "../../common";
+import * as common from "../../common";
 
 const Q = (uri) => `
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -35,20 +36,8 @@ const Q = (uri) => `
 
 const Tree = ({uri}) => {
     const [treeData, setTreeData] = useState([]);
-    const [selectedItem, setSelectedItem] = useState(null);
-
-    /* setSelectedItem cannot be used as UseEffect dependency, has to use setSelectedItemString as intermediate
-    https://stackoverflow.com/questions/55808749/use-object-in-useeffect-2nd-param-without-having-to-stringify-it-to-json
-    https://twitter.com/dan_abramov/status/1104414272753487872
-     */
-    const [selectedItemString, setSelectedItemString] = useState('');
+    const selectedItem = useSelector(state => state.currentUri.value);
     const [loadedUri, setLoadedUri] = useState([]);
-
-    const dispatch = useDispatch();
-    const setSelectedItemCallback = (value) => {
-        setSelectedItem(value);
-        setSelectedItemString(JSON.stringify(value));
-    }
 
     useEffect(() => {
         sparqlEndpoint(Q(uri)).then((res) => {
@@ -57,19 +46,15 @@ const Tree = ({uri}) => {
     }, [uri]);
 
     useEffect(() => {
-        if (selectedItem && !loadedUri.includes(selectedItem.o)) {
-            dispatch({
-                type: "SELECT_ITEM",
-                payload: selectedItem.o
-            });
-            sparqlEndpoint(Q(selectedItem.o)).then(res => {
+        if (selectedItem && common.isUri(selectedItem) && !loadedUri.includes(selectedItem)) {
+            setTimeout(() => sparqlEndpoint(Q(selectedItem)).then(res => {
                 treeData.push(...res.results.bindings);
                 setTreeData(treeData);
-                setLoadedUri([...loadedUri, selectedItem.o])
-            })
+                setLoadedUri([...loadedUri, selectedItem])
+            }), 1000);
         }
 
-    }, [selectedItemString, selectedItem, loadedUri, treeData, dispatch]);
+    }, [selectedItem, loadedUri, treeData]);
 
 
     return (
@@ -80,7 +65,7 @@ const Tree = ({uri}) => {
                 defaultCollapseIcon={<ExpandMoreIcon/>}
                 defaultExpandIcon={<ChevronRightIcon/>}
             >
-                <CustomTreeItem treeData={treeData} setSelectedItem={setSelectedItemCallback} uri={uri} loadedUri={loadedUri}/>
+                <CustomTreeItem treeData={treeData} uri={uri} loadedUri={loadedUri}/>
             </TreeView>
         </div>
     );

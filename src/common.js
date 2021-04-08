@@ -7,6 +7,10 @@ export const isAPropertyToSkip = (property) => {
     return propertiesToSkip.includes(property);
 }
 
+export const isUri = (string) => {
+    return string.startsWith("http://data-iremus.huma-num.fr/");
+}
+
 export const propertiesToSkipAsSparqlFilter = (variableName) => {
     return propertiesToSkip.map(property => {
         return "FILTER (" + variableName + " != "+ property +")";

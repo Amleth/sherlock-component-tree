@@ -18,7 +18,6 @@ const ResourceDetail = ({uri}) => {
         sparqlEndpoint(Q(uri)).then((res) => {
             setResource(res.results.bindings);
         });
-        console.log("yo")
     }, [uri]);
 
     return <div>

@@ -3,11 +3,16 @@ import React, {useCallback, useEffect, useRef, useState} from "react";
 import {Label} from "@material-ui/icons";
 import StyledTreeItem from "./StyledTreeItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {useDispatch} from "react-redux";
+import {select} from "./components/tree/treeSlice";
 
 const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
-
+    const dispatch = useDispatch();
     if (treeData && treeData.length) {
         const currentNodeChildren = treeData.filter(node => node.s.value === uri);
+        if (!currentNodeChildren.length) {
+            return <CircularProgress/>;
+        }
         return (
             <div>
                 {currentNodeChildren.map((child) => {
@@ -20,22 +25,16 @@ const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
                                  */
                                 key={id.toString()}
                                 nodeId={id.toString()}
-                                labelText= {computeLabelText(child)}
+                                labelText={computeLabelText(child)}
                                 labelInfo={child.count.value}
                                 labelIcon={Label}
-                                onClick={child.count.value > 0 ?
-                                    () => {
-                                        setSelectedItem({
-                                            s: child.s.value,
-                                            p: child.p.value,
-                                            o: child.o.value,
-                                            g: child.g.value
-                                        });
-                                    } : null}
+                                onClick={() => {
+                                    dispatch(select(child.o.value))
+                                }}
                             >
                                 {child.count.value > 0 &&
-                                    <CustomTreeItem treeData={treeData} setSelectedItem={setSelectedItem}
-                                                    uri={child.o.value} loadedUri={loadedUri}/>}
+                                <CustomTreeItem treeData={treeData}
+                                                uri={child.o.value} loadedUri={loadedUri}/>}
                             </StyledTreeItem>
                         );
                     }
@@ -43,7 +42,7 @@ const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
             </div>
         );
     }
-    return <CircularProgress />;
+    return <CircularProgress/>;
 
     function computeLabelText(child) {
         return child.type ? child.p.value + " — " + child.o.value + " --" + child.type.value : child.p.value + " — " + child.o.value + " --";
