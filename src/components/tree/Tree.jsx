@@ -11,51 +11,16 @@ import {sparqlEndpoint} from "../../sparql";
 import CustomTreeItem from "../../CustomTreeItem";
 import {propertiesToSkipAsSparqlFilter} from "../../common";
 import * as common from "../../common";
-
-const Q = (uri) => `
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-  SELECT ?s ?p ?o ?g ?type (count(distinct ?children) as ?count)
-  WHERE {
-    GRAPH ?g {
-      <${uri}> ?p ?o .
-      
-      OPTIONAL {
-        ?o rdf:type ?type 
-      }
-      OPTIONAL {
-        ?o ?p2 ?children
-        ${propertiesToSkipAsSparqlFilter("?p2")}
-      }
-      ${propertiesToSkipAsSparqlFilter("?p")}
-      BIND (<${uri}> as ?s) .
-    }
-  }
-  GROUP BY ?s ?p ?o ?g ?type
-`;
+import {fetchUri} from "./treeSlice";
 
 const Tree = ({uri}) => {
-    const [treeData, setTreeData] = useState([]);
-    const selectedItem = useSelector(state => state.currentUri.value);
-    const [loadedUri, setLoadedUri] = useState([]);
+    const treeData = useSelector(state => state.tree.treeData);
+    const selectedItem = useSelector(state => state.tree.uri);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        sparqlEndpoint(Q(uri)).then((res) => {
-            setTreeData(res.results.bindings);
-        });
+        dispatch(fetchUri(uri));
     }, [uri]);
-
-    useEffect(() => {
-        if (selectedItem && common.isUri(selectedItem) && !loadedUri.includes(selectedItem)) {
-            setTimeout(() => sparqlEndpoint(Q(selectedItem)).then(res => {
-                treeData.push(...res.results.bindings);
-                setTreeData(treeData);
-                setLoadedUri([...loadedUri, selectedItem])
-            }), 1000);
-        }
-
-    }, [selectedItem, loadedUri, treeData]);
-
 
     return (
         <div css={style}>
@@ -65,7 +30,7 @@ const Tree = ({uri}) => {
                 defaultCollapseIcon={<ExpandMoreIcon/>}
                 defaultExpandIcon={<ChevronRightIcon/>}
             >
-                <CustomTreeItem treeData={treeData} uri={uri} loadedUri={loadedUri}/>
+                <CustomTreeItem treeData={treeData} uri={uri}/>
             </TreeView>
         </div>
     );

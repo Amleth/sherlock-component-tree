@@ -4,9 +4,9 @@ import {Label} from "@material-ui/icons";
 import StyledTreeItem from "./StyledTreeItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {useDispatch} from "react-redux";
-import {select} from "./components/tree/treeSlice";
+import {fetchUri} from "./components/tree/treeSlice";
 
-const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
+const CustomTreeItem = ({treeData, uri}) => {
     const dispatch = useDispatch();
     if (treeData && treeData.length) {
         const currentNodeChildren = treeData.filter(node => node.s.value === uri);
@@ -29,12 +29,12 @@ const CustomTreeItem = ({treeData, setSelectedItem, uri, loadedUri}) => {
                                 labelInfo={child.count.value}
                                 labelIcon={Label}
                                 onClick={() => {
-                                    dispatch(select(child.o.value))
+                                    dispatch(fetchUri(child.o.value))
                                 }}
                             >
                                 {child.count.value > 0 &&
                                 <CustomTreeItem treeData={treeData}
-                                                uri={child.o.value} loadedUri={loadedUri}/>}
+                                                uri={child.o.value}/>}
                             </StyledTreeItem>
                         );
                     }
