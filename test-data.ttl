@@ -17,79 +17,120 @@
 
 <f553985e-477b-4277-bed2-3b0491d133ab>
     a crm:E32_Authority_Document ;
-
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
-    
-    sherlock:sheP_a_pour_entité_de_plus_haut_niveau <b7443709-8772-4475-9e83-54ee0c71dc19> ;
-    sherlock:sheP_a_pour_entité_de_plus_haut_niveau <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ;
-    sherlock:sheP_a_pour_entité_de_plus_haut_niveau <b66ac7cf-650d-482f-bc96-931835c90d03> ;
-
-    crm:P71_lists <b7443709-8772-4475-9e83-54ee0c71dc19>, <fcdd9457-1501-45d5-959c-3d0f4522dbc7>, <b66ac7cf-650d-482f-bc96-931835c90d03>, <857b66b4-d5f6-486a-851a-e02d50350aa0>, <1d506d02-001f-436c-9bd7-52e8c5c108ba>, <cb7f9fdc-7335-4ee1-b471-ee87a0af781c>, <ea85986c-59f7-48df-a733-bc7b57a5d888>, <1326af96-7d42-465a-a84f-8fd4a6476a3b> ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <b7443709-8772-4475-9e83-54ee0c71dc19>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <fcdd9457-1501-45d5-959c-3d0f4522dbc7>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <b66ac7cf-650d-482f-bc96-931835c90d03>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <857b66b4-d5f6-486a-851a-e02d50350aa0>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <1d506d02-001f-436c-9bd7-52e8c5c108ba>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <cb7f9fdc-7335-4ee1-b471-ee87a0af781c>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <ea85986c-59f7-48df-a733-bc7b57a5d888>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
 <1326af96-7d42-465a-a84f-8fd4a6476a3b>
     a crm:E55_Type ;
     dcterms:creator <88431011-e3c0-4472-bd85-ef04c379f95d> ;
-    dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
     .
 
-<626745e6-d429-4c29-aa8d-02078f96f1d7> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <b7443709-8772-4475-9e83-54ee0c71dc19> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Roulants" ; .
-<8508fabf-19e9-4ea3-b97c-9bb1d43998ea> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Flottants" ; .
-<a860fdca-5dbc-488e-b4ca-d38b5ae13a3b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <b66ac7cf-650d-482f-bc96-931835c90d03> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Volants" ; .
-<1ee31788-e28a-42a1-ada5-9bdbe171e5c4> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <857b66b4-d5f6-486a-851a-e02d50350aa0> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "2 roues" ; .
-<db5135ba-9659-4c25-9003-6dd03230b77c> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "4 roues" ; .
-<65b3b1ce-ca02-4c59-acb7-35b676bfe5e7> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <cb7f9fdc-7335-4ee1-b471-ee87a0af781c> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Volant" ; .
-<63155a7d-f79c-45ec-b388-4b3c66b343b8> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <ea85986c-59f7-48df-a733-bc7b57a5d888> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Guidon" ; .
-<341004bf-546f-47e5-8565-105da9901957> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Vélo" ; .
-<fd1ab31c-8b56-4a7b-92a0-3dc950aecf54> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <857b66b4-d5f6-486a-851a-e02d50350aa0> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141:assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
-<fdfd1937-69f8-4b0e-80a5-d9517ae68acf> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141:assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
-<5bf33cfc-3c54-4591-bc3e-3af1e457b8d3> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <cb7f9fdc-7335-4ee1-b471-ee87a0af781c> ; crm:P177_assigned_property_type crm:P150_defines_typical_parts_of ; crm:P141:assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
-<8f6b8a9c-1d1b-49c8-bbb1-b3fc2376e034> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <ea85986c-59f7-48df-a733-bc7b57a5d888> ; crm:P177_assigned_property_type crm:P150_defines_typical_parts_of ; crm:P141:assigned <857b66b4-d5f6-486a-851a-e02d50350aa0> ; .
-<282effce-7295-443b-b3ef-d3da578bfbe5> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141:assigned <857b66b4-d5f6-486a-851a-e02d50350aa0> ; .
-<630422f0-5fd0-44db-8a4b-fd4c159035bc> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141:assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
-<3b3077c4-0181-4aaa-8159-d05d3347d63d> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141:assigned <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; .
-<17445fcd-da8c-4483-beb0-ac4a9b932611> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141:assigned <b66ac7cf-650d-482f-bc96-931835c90d03> ; .
-<00239e51-97f6-49fc-9a96-92592934d97b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Véhicules" ; .
+<626745e6-d429-4c29-aa8d-02078f96f1d7> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <b7443709-8772-4475-9e83-54ee0c71dc19> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Roulants" ; .
+<8508fabf-19e9-4ea3-b97c-9bb1d43998ea> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Flottants" ; .
+<a860fdca-5dbc-488e-b4ca-d38b5ae13a3b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <b66ac7cf-650d-482f-bc96-931835c90d03> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Volants" ; .
+<1ee31788-e28a-42a1-ada5-9bdbe171e5c4> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <857b66b4-d5f6-486a-851a-e02d50350aa0> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "2 roues" ; .
+<db5135ba-9659-4c25-9003-6dd03230b77c> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "4 roues" ; .
+<65b3b1ce-ca02-4c59-acb7-35b676bfe5e7> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <cb7f9fdc-7335-4ee1-b471-ee87a0af781c> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Volant" ; .
+<63155a7d-f79c-45ec-b388-4b3c66b343b8> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <ea85986c-59f7-48df-a733-bc7b57a5d888> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Guidon" ; .
+<341004bf-546f-47e5-8565-105da9901957> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Vélo" ; .
+
+<fd1ab31c-8b56-4a7b-92a0-3dc950aecf54> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <857b66b4-d5f6-486a-851a-e02d50350aa0> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141_assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
+<fdfd1937-69f8-4b0e-80a5-d9517ae68acf> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141_assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
+<5bf33cfc-3c54-4591-bc3e-3af1e457b8d3> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <cb7f9fdc-7335-4ee1-b471-ee87a0af781c> ; crm:P177_assigned_property_type crm:P150_defines_typical_parts_of ; crm:P141_assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
+<8f6b8a9c-1d1b-49c8-bbb1-b3fc2376e034> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <ea85986c-59f7-48df-a733-bc7b57a5d888> ; crm:P177_assigned_property_type crm:P150_defines_typical_parts_of ; crm:P141_assigned <857b66b4-d5f6-486a-851a-e02d50350aa0> ; .
+<282effce-7295-443b-b3ef-d3da578bfbe5> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141_assigned <857b66b4-d5f6-486a-851a-e02d50350aa0> ; .
+<630422f0-5fd0-44db-8a4b-fd4c159035bc> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141_assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
+<3b3077c4-0181-4aaa-8159-d05d3347d63d> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141_assigned <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; .
+<17445fcd-da8c-4483-beb0-ac4a9b932611> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141_assigned <b66ac7cf-650d-482f-bc96-931835c90d03> ; .
+<00239e51-97f6-49fc-9a96-92592934d97b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141_assigned "Véhicules" ; . 
+
+<d47e892a-600f-40e7-b62f-a79f6d5ef72a> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <b7443709-8772-4475-9e83-54ee0c71dc19> ; .
+<a80b5d42-5560-4521-917a-e591182c9d29> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; .
+<36fd879c-e2c4-4b94-a18a-f9d772807541> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <b66ac7cf-650d-482f-bc96-931835c90d03> ; .
+<bd6362c9-6437-443b-8f56-20bf166cada3> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <857b66b4-d5f6-486a-851a-e02d50350aa0> ; .
+<86b76c19-6284-4fce-a661-d68395bc7ee6> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
+<42729118-213a-404c-95e3-8b3a669ef66b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <cb7f9fdc-7335-4ee1-b471-ee87a0af781c> ; .
+<69aead58-0d5b-45fd-a3b4-c2e08a75aa6a> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <ea85986c-59f7-48df-a733-bc7b57a5d888> ; .
+<964ac9a0-a764-4bdb-a3b9-adb95671b6c5> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; .
+
+# Un deuxième arbre, dans lequel Thomas fait n'importe quoi
+
+<f1d2c4cc-3d51-4400-97e1-aab71db91a4f>
+    a crm:E32_Authority_Document ;
+    dcterms:creator <b280784d-89fb-431e-ab09-94518795b493> ;
+    dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ;
+    .
+
+<641a0ae0-d599-4ea4-8a91-26ec61f1ff10> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <b280784d-89fb-431e-ab09-94518795b493> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ; crm:P140_assigned_attribute_to <f1d2c4cc-3d51-4400-97e1-aab71db91a4f> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; .
+<d64d0549-98a3-4946-a50b-57300ac8c1fb> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <b280784d-89fb-431e-ab09-94518795b493> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ; crm:P140_assigned_attribute_to <f1d2c4cc-3d51-4400-97e1-aab71db91a4f> ; crm:P177_assigned_property_type crm:P71_lists ; crm:P141_assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
+<641a0ae0-d599-4ea4-8a91-26ec61f1ff10> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <b280784d-89fb-431e-ab09-94518795b493> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ; crm:P140_assigned_attribute_to <f1d2c4cc-3d51-4400-97e1-aab71db91a4f> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141_assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
+<641a0ae0-d599-4ea4-8a91-26ec61f1ff10> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <b280784d-89fb-431e-ab09-94518795b493> ; dcterms:created "2021-04-08T08:27:10Z "^^xsd:dateTime ; crm:P140_assigned_attribute_to <1326af96-7d42-465a-a84f-8fd4a6476a3b> ; crm:P177_assigned_property_type crm:P127_has_broader_term ; crm:P141_assigned <1d506d02-001f-436c-9bd7-52e8c5c108ba> ; .
