@@ -3,6 +3,7 @@ import treeReducer from '../components/tree/treeSlice'
 
 export default configureStore({
     reducer: {
-        tree: treeReducer
+        tree: treeReducer,
+        //selectedUri: selectedUriReducer
     }
 })

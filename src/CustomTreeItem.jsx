@@ -4,12 +4,12 @@ import {Label} from "@material-ui/icons";
 import StyledTreeItem from "./StyledTreeItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {useDispatch} from "react-redux";
-import {fetchUri} from "./components/tree/treeSlice";
+import {fetchUri, selectUri} from "./components/tree/oldTreeSlice";
 
 const CustomTreeItem = ({treeData, uri}) => {
     const dispatch = useDispatch();
     if (treeData && treeData.length) {
-        const currentNodeChildren = treeData.filter(node => node.s.value === uri);
+        const currentNodeChildren = treeData.filter(node => node.s.value === uri || node.o.value === uri);
         if (!currentNodeChildren.length) {
             return <CircularProgress/>;
         }
@@ -25,16 +25,17 @@ const CustomTreeItem = ({treeData, uri}) => {
                                  */
                                 key={id.toString()}
                                 nodeId={id.toString()}
-                                labelText={computeLabelText(child)}
+                                labelText={computeLabelText(child, uri)}
                                 labelInfo={child.count.value}
                                 labelIcon={Label}
                                 onClick={() => {
-                                    dispatch(fetchUri(child.o.value))
+                                    dispatch(selectUri(getChildUri(child,uri)))
+                                    dispatch(fetchUri(getChildUri(child,uri)))
                                 }}
                             >
                                 {child.count.value > 0 &&
                                 <CustomTreeItem treeData={treeData}
-                                                uri={child.o.value}/>}
+                                                uri={getChildUri(child,uri)}/>}
                             </StyledTreeItem>
                         );
                     }
@@ -44,8 +45,12 @@ const CustomTreeItem = ({treeData, uri}) => {
     }
     return <CircularProgress/>;
 
-    function computeLabelText(child) {
-        return child.type ? child.p.value + " — " + child.o.value + " --" + child.type.value : child.p.value + " — " + child.o.value + " --";
+    function getChildUri(child, uri) {
+        return uri === child.o.value ? child.s.value : child.o.value;
+    }
+
+    function computeLabelText(child, uri) {
+        return uri === child.o.value ? "<- (" + child.p.value + ") " + child.s.value : "-> (" + child.p.value + ") " + child.o.value
     }
 }
 

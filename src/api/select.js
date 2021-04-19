@@ -7,19 +7,35 @@ export const getUriChildren = async (uri) =>
 
   SELECT ?s ?p ?o ?g ?type (count(distinct ?children) as ?count)
   WHERE {
-    GRAPH ?g {
-      <${uri}> ?p ?o .
-      
-      OPTIONAL {
-        ?o rdf:type ?type 
+      {
+          BIND (<${uri}> as ?s) .
+          GRAPH ?g {
+              ?s ?p ?o .
+              OPTIONAL {
+                  ?o rdf:type ?type 
+              }
+              OPTIONAL {
+                  ?o ?p2 ?children
+                  ${propertiesToSkipAsSparqlFilter("?p2")}
+              }
+              ${propertiesToSkipAsSparqlFilter("?p")}
+          }
       }
-      OPTIONAL {
-        ?o ?p2 ?children
-        ${propertiesToSkipAsSparqlFilter("?p2")}
+      UNION
+      {
+          BIND (<${uri}> as ?o) .
+          GRAPH ?g {
+              ?s ?p ?o .
+              OPTIONAL {
+                  ?o rdf:type ?type 
+              }
+              OPTIONAL {
+                  ?o ?p2 ?children
+                  ${propertiesToSkipAsSparqlFilter("?p2")}
+              }
+              ${propertiesToSkipAsSparqlFilter("?p")}
+          }
       }
-      ${propertiesToSkipAsSparqlFilter("?p")}
-      BIND (<${uri}> as ?s) .
-    }
   }
   GROUP BY ?s ?p ?o ?g ?type
 `);

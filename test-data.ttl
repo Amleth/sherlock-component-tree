@@ -93,3 +93,6 @@
 <3b3077c4-0181-4aaa-8159-d05d3347d63d> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141:assigned <fcdd9457-1501-45d5-959c-3d0f4522dbc7> ; .
 <17445fcd-da8c-4483-beb0-ac4a9b932611> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type sherlock:sheP_a_pour_entité_de_plus_haut_niveau ; crm:P141:assigned <b66ac7cf-650d-482f-bc96-931835c90d03> ; .
 <00239e51-97f6-49fc-9a96-92592934d97b> a crm:E13_Attribute_Assignment ; crm:P14_carried_out_by <88431011-e3c0-4472-bd85-ef04c379f95d> ; dcterms:created "2021-W12-2T18:41:42Z"^^xsd:dateTime ; crm:P140_assigned_attribute_to <f553985e-477b-4277-bed2-3b0491d133ab> ; crm:P177_assigned_property_type crm:P1_is_identified_by ; crm:P141:assigned "Véhicules" ; .
+
+
+<http://google.com> <http://tralala.com> <f553985e-477b-4277-bed2-3b0491d133ab> .
