@@ -11,6 +11,7 @@ import {
 const adapter = createEntityAdapter()
 const initialState = adapter.getInitialState({
     root: null,
+    unfoldedPaths: [],
     status: 'idle'
 })
 
@@ -52,6 +53,12 @@ export const treeSlice = createSlice({
     reducers: {
         rootSet: (state, action) => {
             state.root = action.payload;
+        },
+        pathUnfoldStatusChanged: (state, action) => {
+            if (state.unfoldedPaths.includes(action.payload))
+                state.unfoldedPaths = state.unfoldedPaths.filter(item => item !== action.payload)
+            else
+                state.unfoldedPaths.push(action.payload);
         }
     },
     extraReducers: {
@@ -81,7 +88,7 @@ export const treeSlice = createSlice({
     }
 })
 
-export const {rootSet} = treeSlice.actions
+export const {rootSet, pathUnfoldStatusChanged} = treeSlice.actions
 export const { selectById: selectResourceByUri } = adapter.getSelectors(state => state.tree)
 
 export default treeSlice.reducer

@@ -7,13 +7,14 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import {useDispatch, useSelector} from 'react-redux'
 
 import {style} from "../../tree.css";
-import {rootSet, getResourceIdentity, selectResourceByUri} from "./treeSlice";
+import {rootSet, getResourceIdentity, selectResourceByUri, pathUnfolded, pathUnfoldStatusChanged} from "./treeSlice";
 import IriTreeItem from "./IriTreeItem";
 
 const Tree = ({uri}) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(rootSet(uri));
+        dispatch(pathUnfoldStatusChanged(uri));
         dispatch(getResourceIdentity(uri));
     }, [uri]);
 
@@ -25,7 +26,7 @@ const Tree = ({uri}) => {
                 defaultCollapseIcon={<ExpandMoreIcon/>}
                 defaultExpandIcon={<ChevronRightIcon/>}
             >
-                <IriTreeItem path={uri} uri={uri}/>
+                <IriTreeItem path="" uri={uri}/>
             </TreeView>
         </div>
     );
