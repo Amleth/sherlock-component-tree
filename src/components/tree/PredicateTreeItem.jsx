@@ -21,8 +21,8 @@ const PredicateTreeItem = ({path, predicate, relatedUri}) => {
     >
         {predicate.resources && predicate.resources.map(resource => {
             return resource.r.type === 'uri'
-                ? <IriTreeItem path={`${path} / ${resource.r.value}`} uri={resource.r.value}/>
-                : <LiteralTreeItem path={`${path} / ${resource.r.value}`} literal={resource.r} />
+                ? <IriTreeItem path={`${path} / ${resource.r.value}`} key={`${path} / ${resource.r.value}`} uri={resource.r.value}/>
+                : <LiteralTreeItem path={`${path} / ${resource.r.value}`} key={`${path} / ${resource.r.value}`} literal={resource.r} />
         })
         }
         {! predicate.resources && <CircularProgress/>}

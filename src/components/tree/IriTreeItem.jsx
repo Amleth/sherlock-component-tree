@@ -10,7 +10,6 @@ const IriTreeItem = ({path, uri}) => {
     const dispatch = useDispatch();
     const resource = useSelector(state => selectResourceByUri(state, uri));
 
-    console.log("resource");
     return resource ? <StyledTreeItem
         key={path}
         nodeId={path}
