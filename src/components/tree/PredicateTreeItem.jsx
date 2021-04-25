@@ -17,20 +17,20 @@ const PredicateTreeItem = ({path, predicate, relatedUri}) => {
         return <StyledTreeItem
             labelIcon={computeLabelIcon(predicate)}
             labelInfo={predicate.c.value}
-            nodeId={`${path}${predicate.p.value},`}
+            nodeId={`${path}${predicate.p.value},${predicate.direction.value},`}
             labelText={predicate.p.value}
             onClick={() => {
                 dispatch(getResourcesByPredicateAndLinkedResource({p: predicate.p.value, uri: relatedUri}))
-                dispatch(pathUnfoldStatusChanged(`${path}${predicate.p.value},`))
+                dispatch(pathUnfoldStatusChanged(`${path}${predicate.p.value},${predicate.direction.value},`))
 
             }}
         >
             {canShowItem(predicate, unfoldedPaths, path) && predicate.resources.map(resource => {
                 return resource.r.type === 'uri'
-                    ? <IriTreeItem path={`${path}${predicate.p.value},`}
-                                   key={`${path}${predicate.p.value},${resource.r.value},`} uri={resource.r.value}/>
-                    : <LiteralTreeItem path={`${path}${predicate.p.value},`}
-                                       key={`${path}${predicate.p.value},${resource.r.value},`} literal={resource.r}/>
+                    ? <IriTreeItem path={`${path}${predicate.p.value},${predicate.direction.value},`}
+                                   key={`${path}${predicate.p.value},${predicate.direction.value},${resource.r.value},`} uri={resource.r.value}/>
+                    : <LiteralTreeItem path={`${path}${predicate.p.value},${predicate.direction.value},`}
+                                       key={`${path}${predicate.p.value},${predicate.direction.value},${resource.r.value},`} literal={resource.r}/>
             })
             }
             {!predicate.resources && <CircularProgress/>}
