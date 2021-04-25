@@ -1,6 +1,6 @@
 import StyledTreeItem from "../../StyledTreeItem";
 import React from "react";
-import {Label} from "@material-ui/icons";
+import {Public} from "@material-ui/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {getResourcePredicates, pathUnfoldStatusChanged, selectResourceByUri} from "./treeSlice";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -15,7 +15,7 @@ const IriTreeItem = ({path, uri}) => {
         nodeId={`${path}${resource.id},`}
         labelText={resource.id}
         labelInfo={count.value}
-        labelIcon={Label}
+        labelIcon={Public}
         onClick={() => {
             dispatch(getResourcePredicates(resource.id))
             dispatch(pathUnfoldStatusChanged(`${path}${resource.id},`));
