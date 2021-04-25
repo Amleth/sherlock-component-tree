@@ -23,6 +23,7 @@ WHERE {
         ))
     }
   }
+  UNION
   {
     SELECT (COUNT(?_o) + COUNT(?_s) AS ?c)
     WHERE {

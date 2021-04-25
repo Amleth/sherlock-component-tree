@@ -55,10 +55,9 @@ export const treeSlice = createSlice({
             state.root = action.payload;
         },
         pathUnfoldStatusChanged: (state, action) => {
-            if (state.unfoldedPaths.includes(action.payload))
-                state.unfoldedPaths = state.unfoldedPaths.filter(item => item !== action.payload)
-            else
-                state.unfoldedPaths.push(action.payload);
+            state.unfoldedPaths.includes(action.payload)
+                ? state.unfoldedPaths = state.unfoldedPaths.filter(item => item !== action.payload)
+                :state.unfoldedPaths.push(action.payload);
         }
     },
     extraReducers: {

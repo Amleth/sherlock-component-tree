@@ -10,11 +10,11 @@ const IriTreeItem = ({path, uri}) => {
     const dispatch = useDispatch();
     const resource = useSelector(state => selectResourceByUri(state, uri));
     const unfoldedPaths = useSelector(state => state.tree.unfoldedPaths);
-
+    const count = getNumberOfChildren(resource);
     return canShowItem(resource, unfoldedPaths, path) ?  <StyledTreeItem
         nodeId={`${path}${resource.id},`}
         labelText={resource.id}
-        labelInfo={resource.identity.length ? resource.identity[0].c.value : 0}
+        labelInfo={count.value}
         labelIcon={Label}
         onClick={() => {
             dispatch(getResourcePredicates(resource.id))
@@ -22,7 +22,6 @@ const IriTreeItem = ({path, uri}) => {
         }}
     >
         {
-            //clickedItems.includes(path)
             resource.predicates && resource.predicates.map(predicate =>
                 <PredicateTreeItem
                     key={`${path},${resource.id},${predicate.p.value}`}
@@ -32,15 +31,19 @@ const IriTreeItem = ({path, uri}) => {
                 />)
         }
         {
-            resource.identity.length && !resource.predicates && <CircularProgress/>
+            count && !resource.predicates && <CircularProgress/>
         }
     </StyledTreeItem> : <CircularProgress/>
 }
 
+function getNumberOfChildren(resource) {
+    if (resource && resource.identity.length) {
+        return resource.identity.find(child => child.c).c;
+    }
+    return {value: 0};
+}
 
 function canShowItem(resource, unfoldedPaths, path) {
-    console.log(unfoldedPaths)
-    console.log(path)
     return resource && (unfoldedPaths.includes(path) || !path);
 }
 
