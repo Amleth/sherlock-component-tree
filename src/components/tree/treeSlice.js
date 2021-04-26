@@ -1,7 +1,7 @@
 import {createAsyncThunk, createEntityAdapter, createSlice} from "@reduxjs/toolkit";
 import {fetchUri, oldTreeSlice} from "./oldTreeSlice";
 import {sparqlEndpoint} from "../../sparql"
-import identityQuery from "./identityQuery";
+import {Q, getIdentities} from "./identityQuery";
 import predicatesQuery from "./predicatesQuery";
 import {
     resourcesByPredicateAndObjectQuery,
@@ -19,8 +19,7 @@ export const getResourceIdentity = createAsyncThunk('tree/fetchResourceIdentity'
     const identity = thunkAPI.getState().tree.ids[uri];
     if (identity)
         return identity
-    //TODO: sortir le count de la requete : si une ressource a des prédicats et pas d'identity, on ne pourra pas les fetch
-    const response = await sparqlEndpoint(identityQuery(uri));
+    const response = await sparqlEndpoint(Q(uri));
     return {id: uri, identity: response.results.bindings};
 })
 
@@ -40,10 +39,11 @@ export const getResourcesByPredicateAndLinkedResource = createAsyncThunk('tree/f
     const response = predicate.direction.value === 'o'
         ? await sparqlEndpoint(resourcesByPredicateAndSubjectQuery(payload.p, payload.uri))
         : await sparqlEndpoint(resourcesByPredicateAndObjectQuery(payload.p, payload.uri));
-    //TODO: faire en une requête
+    const identities = await sparqlEndpoint(getIdentities(response.results.bindings));
     response.results.bindings.forEach(resource => {
-        thunkAPI.dispatch(getResourceIdentity(resource.r.value));
-    })
+        const identity = {id: resource.r.value, identity: identities.results.bindings.filter(identity => identity.id.value === resource.r.value)};
+        thunkAPI.dispatch(resourceAdded(identity));
+    });
     return {id: payload.uri, p: payload.p, resources: response.results.bindings};
 })
 
@@ -53,6 +53,9 @@ export const treeSlice = createSlice({
     reducers: {
         rootSet: (state, action) => {
             state.root = action.payload;
+        },
+        resourceAdded: (state, action) => {
+            adapter.addOne(state, action.payload)
         },
         pathUnfoldStatusChanged: (state, action) => {
             state.unfoldedPaths.includes(action.payload)
@@ -87,7 +90,7 @@ export const treeSlice = createSlice({
     }
 })
 
-export const {rootSet, pathUnfoldStatusChanged} = treeSlice.actions
+export const {rootSet, pathUnfoldStatusChanged, resourceAdded} = treeSlice.actions
 export const { selectById: selectResourceByUri } = adapter.getSelectors(state => state.tree)
 
 export default treeSlice.reducer
